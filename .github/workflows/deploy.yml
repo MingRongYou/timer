@@ -41,6 +41,8 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm install
+      - name: Build CSS
+        run: npx postcss src/tailwind.css -o dist/tailwind.css --use postcss-nested
       - name: Build
         run: npm run build
       - name: Setup Pages
