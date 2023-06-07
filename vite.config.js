@@ -1,13 +1,19 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { fileURLToPath, URL } from 'node:url'
-import postcss from 'postcss';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  css: {
+    postcss: {
+        plugins: [
+          require('tailwindcss'),
+          require('autoprefixer'),
+        ],
+    },
+  },
   plugins: [
     vue(),
-    postcss()
   ],
   base: '/timer/',
   resolve: {
